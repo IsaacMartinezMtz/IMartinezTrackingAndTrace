@@ -1,0 +1,65 @@
+﻿@model ML.Paquete
+@{
+    ViewBag.Title = "GetRastreo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style type="text/css">
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+<div class="text-lg-start">
+    <h2>Paquete</h2>
+</div>
+<hr />
+
+@using (Html.BeginForm("GetRastreo", "Paquete", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form>
+        <label for="input" class="form-label">Codigo de Rastreo </label>
+        <div class="mb-3">
+            @Html.TextBoxFor(model => Model.CodigoRasdtreo, new { @class = "form-control " })
+        </div>
+
+        <button class="btn btn-outline-success" type="submit" id="btnBuscar">Search</button>
+    </form>
+}
+
+@if (Model == null || Model.IdPaquete == null)
+{
+    <div class="alert alert-success" role="alert">
+        Error Vulva a ingresar el codigo de rastreo o ingresalo.
+    </div>
+
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No. Paquete</th>
+                <th scope="col">Codigo de Ratreo </th>
+                <th scope="col">Peso</th>
+                <th scope="col">Dirrecion de destino </th>
+                <th scope="col">Dirrecion de origen  </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">@Model.IdPaquete</th>
+                <td>@Model.CodigoRasdtreo</td>
+                <td>@Model.Peso</td>
+                <td>@Model.DirrecionEntrega</td>
+                <td>@Model.DirrecionOrigen</td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+}
+
+

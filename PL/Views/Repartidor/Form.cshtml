@@ -1,0 +1,106 @@
+﻿@model ML.Repartidor
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-lg-start">
+    <h2>Usuario</h2>
+    <h5>Ingrese los datos del usuario</h5>
+</div>
+<hr />
+@using (Html.BeginForm("Form", "Repartidor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(Model => Model.IdRepartidor)
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+
+
+            <div class="col">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.Nombre, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.Nombre, new { @class = "form-control hidden" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.UnidadEntrega.IdUnidad, new { @class = "hidden" })
+                    @Html.DropDownListFor(model => Model.UnidadEntrega.IdUnidad, new SelectList(Model.UnidadEntrega.Unidades, "IdUnidad", "Placas"), "Selecciona el area correspondiente", new { @class = "form-select hidden" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.FechaIngreso, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.FechaIngreso, new { @class = "form-control hidden", @type = "date" })
+                </div>
+
+            </div>
+
+
+            <div class="col">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.ApellidoPaterno, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.ApellidoPaterno, new { @class = "form-control hidden", @type = "password" })
+                </div>
+                <div class="col-md-6">
+                    @if (Model.Imagen == "" || Model.Imagen == null)
+                    {
+                        <img id="img" src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small/user-profile-icon-free-vector.jpg" width="200" height="200" />
+                        <input id="Imagen" name="Imagen" type="file" class="form-control" onchange="ValidarImagen(), visualizarImagen(this)" />
+                    }
+                    else
+                    {
+
+                        <img id="img" src="data:imagen/*;base64,@Model.Imagen" width="50" ,height="50" />
+                        <input id="Imagen" name="Imagen" type="file" class="form-control" onchange="ValidarImagen(), visualizarImagen(this)" />
+                    }
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.ApellidoMaterno, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.ApellidoMaterno, new { @class = "form-control hidden" })
+                </div>
+
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.Telefono, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.Telefono, new { @class = "form-control hidden" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+        <a id="btnCancelar" class="btn btn-danger" href="@Url.Action("GetAll", "Repartidor")"><i class="fa-solid fa-right-from-bracket"></i> Volver</a>
+    </div>
+}
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+
+    function ValidarImagen() {
+        var extensionesPermitidas = ['jpeg', 'jpg', 'png'];
+        var extensionArchivo = document.getElementById('Imagen').value.split('.').pop().toLowerCase();
+        var isValidFile = false; //saber si es valida o no es valida
+        for (var index in extensionesPermitidas) {
+            if (extensionArchivo === extensionesPermitidas[index]) {
+                isValidFile = true;
+                break;
+            }
+        }
+        if (!isValidFile) {
+            alert('Las extensiones permitidas son : *.' + extensionesPermitidas.join(', *.'));
+            $("#Imagen").val("")
+        }
+        return isValidFile;
+
+    }
+    function visualizarImagen(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#img').attr('src', e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>

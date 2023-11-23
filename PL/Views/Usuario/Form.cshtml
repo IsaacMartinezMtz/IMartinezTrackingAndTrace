@@ -1,0 +1,58 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="text-lg-start">
+    <h2>Usuario</h2>
+    <h5>Ingrese los datos del usuario</h5>
+</div>
+<hr />
+@using (Html.BeginForm("Form", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(Model => Model.IdUsuario)
+
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.UserName, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.UserName, new { @class = "form-control hidden" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.Email, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.Email, new { @class = "form-control hidden" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.ApellidoMaterno, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.ApellidoMaterno, new { @class = "form-control hidden" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.Password, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.Password, new { @class = "form-control hidden", @type = "password" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.Nombre, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.Nombre, new { @class = "form-control hidden" })
+                </div>
+            </div>
+            <div class="col">
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.Rol.IdRol, new { @class = "hidden" })
+                    @Html.DropDownListFor(model => Model.Rol.IdRol, new SelectList(Model.Rol.Roles, "IdRol", "Tipo"), "Selecciona el area correspondiente", new { @class = "form-select hidden" })
+                </div>
+                <div class="col-md-6">
+                    @Html.LabelFor(model => Model.ApellidoPaterno, new { @class = "hidden" })
+                    @Html.TextBoxFor(model => Model.ApellidoPaterno, new { @class = "form-control hidden" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-success" type="submit"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
+        <a id="btnCancelar" class="btn btn-danger" href="@Url.Action("GetAll", "Usuario")"><i class="fa-solid fa-right-from-bracket"></i> Volver</a>
+    </div>
+}

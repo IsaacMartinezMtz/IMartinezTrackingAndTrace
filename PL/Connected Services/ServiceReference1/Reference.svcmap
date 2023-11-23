@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="1cd75197-44d0-4f13-b208-08d7ea2d371b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6316/RepartidorService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RepartidorService.xsd" MetadataType="Schema" ID="72cc0bbe-704e-4c91-9d5c-69f07b94b292" SourceId="1" SourceUrl="http://localhost:6316/RepartidorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RepartidorService.wsdl" MetadataType="Wsdl" ID="49c34140-2190-4939-af0e-5b2b1ad2438a" SourceId="1" SourceUrl="http://localhost:6316/RepartidorService.svc?wsdl" />
+    <MetadataFile FileName="RepartidorService1.xsd" MetadataType="Schema" ID="ceac88b0-da7c-4df7-990f-cc2daad2daac" SourceId="1" SourceUrl="http://localhost:6316/RepartidorService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RepartidorService.disco" MetadataType="Disco" ID="f2165da6-bc0a-4917-8e93-56703712c2d3" SourceId="1" SourceUrl="http://localhost:6316/RepartidorService.svc?disco" />
+    <MetadataFile FileName="RepartidorService2.xsd" MetadataType="Schema" ID="7bce0765-444d-4762-96b8-4d7d9e1d715c" SourceId="1" SourceUrl="http://localhost:6316/RepartidorService.svc?xsd=xsd4" />
+    <MetadataFile FileName="RepartidorService3.xsd" MetadataType="Schema" ID="8a387538-1f9f-4e6f-9776-70228a578ba8" SourceId="1" SourceUrl="http://localhost:6316/RepartidorService.svc?xsd=xsd3" />
+    <MetadataFile FileName="RepartidorService4.xsd" MetadataType="Schema" ID="075ea1cb-3104-4b21-a2ad-48a26ff5da3f" SourceId="1" SourceUrl="http://localhost:6316/RepartidorService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
